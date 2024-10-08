@@ -1,0 +1,22 @@
+name: build-unity-app
+on:
+  pull_request:
+    types: [closed, synchronize, opened]
+    branches:
+      - main
+    paths:
+        - "TestProj/**"
+      
+jobs:
+  build-unity-app:
+    name: Build Unity App
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TestProj
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
+      - name: Build Unity App
+        run: echo "Build Unity App"
+        
