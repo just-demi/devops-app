@@ -27,6 +27,7 @@ jobs:
       - name: Build Next.js app
         run: npm run build
       - name: Build Docker image
+        working-directory: ./devops_next
         run: |
           docker build -t next-app:latest .
       
