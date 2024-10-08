@@ -1,0 +1,30 @@
+name: Flask App CI
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+    paths:
+      - "flask-app/**"
+      
+jobs:
+  build-flask-app:
+    name: Build Flask App
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./flask-app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
+      - name: Set up Python
+        uses: actions/setup-python@v5.2.0
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: build flask app container
+        working-directory: ./flask-app
+        run: |
+            docker build -t flask-app:latest .
+        
