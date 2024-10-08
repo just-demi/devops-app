@@ -16,5 +16,6 @@ if(pull_request) {
 myMangos = ["Mango1" ]
 myMango = "mango1"
 
-console.log(myMango)
+console.log(myMangos)
+
 
