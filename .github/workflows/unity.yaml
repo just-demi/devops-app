@@ -1,4 +1,4 @@
-name: build-unity-app
+name: gane validation pipeline
 on:
   pull_request:
     types: [closed, synchronize, opened]
@@ -17,6 +17,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.1
-      - name: Build Unity App
-        run: echo "Build Unity App"
+    
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: WebGL
         
+          
