@@ -2,11 +2,11 @@ name: Dineo Deployment pipeline
 on:
   push:
     branches:
-      - main
+      - deploy
   pull_request:
     types: [closed, synchronize, opened]
     branches:
-      - main
+      - deploy
     paths:
       - 'README.md'
       - ".github/workflows/**"
