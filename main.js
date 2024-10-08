@@ -13,8 +13,8 @@ if(pull_request) {
     }
 }
 
-myMangos = ["Mango1" ]
-myMango = "mango1"
+const myMangos = ["Mango1" ]
+const myMango = "mango1"
 
 console.log(myMangos)
 
